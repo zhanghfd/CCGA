@@ -1,5 +1,5 @@
 
-CCGA = function(Y,G,X,S,fs,par=NULL,link='logit',modified=TRUE){
+SingleSNP = function(Y,G,X,S,fs,par=NULL,link='logit',modified=TRUE){
 
   ## fs[i] = prevalence for stratum i
 

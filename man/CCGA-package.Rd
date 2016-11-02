@@ -2,7 +2,7 @@
 \alias{CCGA-package}
 \docType{package}
 \title{
-Case-control genetic association analysis with adjustment of non-confounding covariates. 
+Case-control genetic association analysis with adjustment of non-confounding covariates.
 }
 \description{
 In CCGA, the power of disease-SNP association analysis in case-control studies can be potentially improved through efficiently adjustmenting non-confounding covariates, compared with the standard logistic regression method with or without covariate adjustment.
@@ -15,9 +15,9 @@ where g(.) is a given function, which can be the logit function or the probit fu
 
 The disease prevalence(s), Hardy-Weinberg equilibrium, and independence between  non-confounding covariates and SNP genotype are efficiently incorporated in the retrospective likelihood function, and the nonparametric distribution of the covariate(s) is profiled out through the application of Lagrange's multipler method. The multipliers can be directly estimated using the available data, which yields the so called profile maximum likelihood estimates of the regression parameter (pMLE). Alternatively, the data-dependent multiplier(s) can be replaced with the limiting value(s) to yield a modified profile likeihood function, which results in modified profile maximum likelihood estimates (mpMLE). Theoretically, mpMLE and pMLE are asymptotically equivalent in terms of efficiency, but mpMLE could be computationally much simplier and faster.
 
-There are two candidate link functions ("logit" and "probit"), and the p
 
-This package includes the main function "CCGA" and a simulated dataset "data" for illustration.
+This package includes two main functions (i.e., "SingleSNP" and "MultipleSNP") and a simulated dataset "data" for illustration. In both of the two functions, two candidate link functions (i.e., "logit" and "probit") can be used, and both mpMLE and pMLE can be implemented. In the function "MultipleSNP", multiple CPU cores can be used to speed up the analysis.
+
 }
 \details{
 \tabular{ll}{
