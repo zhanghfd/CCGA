@@ -49,11 +49,9 @@ SingleSNP(Y, G, X, S, fs, par = NULL, link = "logit", modified = TRUE)
 
   covariate = data[,3:5];
 
-  genotype = data[[,6]];
+  genotype = data[,6];
 
   fs = c(0.010869, 0.000867, 0.001707);
-
-  covariate = cbind(covariate.1,covariate.2,covariate.3);
 
   fit = SingleSNP(Y=status,G=genotype,X=covariate,S=stratum,fs=fs);
 

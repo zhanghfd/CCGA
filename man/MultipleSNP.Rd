@@ -5,7 +5,7 @@
 Estimation of log-ORs (SEs) and significance test p-values for multiple SNPs.
 }
 \description{
-This function returns (1) log-OR estimates and the corresponding (2) standard errors and the significance test (3) p-values for multiple SNPs. The modified profile likelihood is used. Parallel computation can be used to speed up the analysis through specification of more than one CPU cores.
+This function returns (1) log-OR estimates and the corresponding (2) standard errors and the significance test (3) p-values for multiple SNPs. The modified profile likelihood is used. Parallel computation can be used to speed up the analysis through specification of more than one CPU cores. Because the function "mcapply" in the R package "parallel" is used, the core number can be greater than 1 in UNIX-like OS but it can be only 1 in Windows OS.
 
 If a covariate is categorical, dummy variables should be constructed before using the function.
 }
@@ -50,6 +50,7 @@ MultipleSNP(Gs, Y, Z, S, fs, par = NULL, link = "logit", modified=TRUE, cl.cores
 
   fs = c(0.010869, 0.000867, 0.001707);
 
-  res = MultipleSNP(Gs,Y=status,Z=covariate,S=stratum,fs=fs,cl.cores=2)
+  ## not run
+  # res = MultipleSNP(Gs,Y=status,Z=covariate,S=stratum,fs=fs,cl.cores=1)
 
 }

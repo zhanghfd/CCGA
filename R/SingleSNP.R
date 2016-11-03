@@ -1,15 +1,12 @@
-
 SingleSNP = function(Y,G,X,S,fs,par=NULL,link='logit',modified=TRUE){
 
   ## fs[i] = prevalence for stratum i
 
   n.S = length(fs);
-  if(is.matrix(X)){
-    n.X = ncol(X);
-  }else{
-    n.X = 1;
+  if(!is.matrix(X)){
     X = as.matrix(X);
   }
+  n.X = ncol(X);
   Scount = as.vector(table(S));
 
   S.sort = sort(unique(S));
@@ -66,7 +63,10 @@ SingleSNP = function(Y,G,X,S,fs,par=NULL,link='logit',modified=TRUE){
     para$betaS = par$betaS;
   }
 
-  dat = list(S=S,X=as.matrix(X),G=G,Y=Y,ns=ns);
+  dat = cbind(Y,S,G,X);
+  id = which(apply(!is.na(dat),1,any));
+
+  dat = list(S=S[id],X=as.matrix(X[id,]),G=G[id],Y=Y[id],ns=ns);
 
   if(link=='logit'){
     if(modified){
