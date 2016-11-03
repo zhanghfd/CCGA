@@ -40,13 +40,15 @@ MultipleSNP(Gs, Y, Z, S, fs, par = NULL, link = "logit", modified=TRUE, cl.cores
 
   data(data);
 
-  attach(data);
+  status = data[,1];
+
+  stratum = data[,2];
+
+  covariate = data[,3:5];
+
+  Gs = data[,-(1:5)];
 
   fs = c(0.010869, 0.000867, 0.001707);
-
-  covariate = cbind(covariate.1,covariate.2,covariate.3);
-
-  Gs = cbind(genotype,genotype);
 
   res = MultipleSNP(Gs,Y=status,Z=covariate,S=stratum,fs=fs,cl.cores=2)
 

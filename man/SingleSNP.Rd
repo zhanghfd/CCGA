@@ -43,7 +43,13 @@ SingleSNP(Y, G, X, S, fs, par = NULL, link = "logit", modified = TRUE)
 
   data(data);
 
-  attach(data);
+  status = data[,1];
+
+  stratum = data[,2];
+
+  covariate = data[,3:5];
+
+  genotype = data[[,6]];
 
   fs = c(0.010869, 0.000867, 0.001707);
 
