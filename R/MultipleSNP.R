@@ -20,8 +20,9 @@ MultipleSNP = function(Gs,Y,Z,S,fs,par=NULL,link='logit',modified=TRUE,cl.cores=
   }
   Gs = as.list(Gs);
 
-  res = mclapply(Gs,FUN=SingleGeneticEffect,mc.cores=cl.cores);
+  res = as.data.frame(t(mclapply(Gs,FUN=SingleGeneticEffect,mc.cores=cl.cores)));
+  names(res) = c('log-OR','SE','p-value');
 
-  return(as.data.frame(res));
+  return(as.data.frame(t(res)));
 
 }
