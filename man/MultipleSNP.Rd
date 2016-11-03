@@ -50,7 +50,6 @@ MultipleSNP(Gs, Y, Z, S, fs, par = NULL, link = "logit", modified=TRUE, cl.cores
 
   fs = c(0.010869, 0.000867, 0.001707);
 
-  ## not run
-  # res = MultipleSNP(Gs,Y=status,Z=covariate,S=stratum,fs=fs,cl.cores=1)
+  res = MultipleSNP(Gs,Y=status,Z=covariate,S=stratum,fs=fs,cl.cores=1)
 
 }

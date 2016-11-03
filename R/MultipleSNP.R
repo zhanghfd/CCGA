@@ -1,3 +1,5 @@
+
+
 MultipleSNP = function(Gs,Y,Z,S,fs,par=NULL,link='logit',modified=TRUE,cl.cores=1){
 
   SingleGeneticEffect = function(G){
@@ -20,9 +22,11 @@ MultipleSNP = function(Gs,Y,Z,S,fs,par=NULL,link='logit',modified=TRUE,cl.cores=
   }
   Gs = as.list(Gs);
 
-  res = as.data.frame(t(mclapply(Gs,FUN=SingleGeneticEffect,mc.cores=cl.cores)));
+  res = mclapply(Gs,FUN=SingleGeneticEffect,mc.cores=cl.cores);
+
+  res = data.frame(t(matrix(unlist(res),3)));
   names(res) = c('log-OR','SE','p-value');
+  row.names(res) = paste('SNP',1:nrow(res),sep='.');
 
-  return(as.data.frame(t(res)));
-
+  return(res)
 }
