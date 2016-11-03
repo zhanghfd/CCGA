@@ -9,15 +9,7 @@
 }
 \usage{data(data)}
 \format{
-  A data frame containing the following information for each of 1200 observations:
-  \describe{
-    \item{\code{stratum}}{a numeric vector}
-    \item{\code{status}}{a numeric vector}
-    \item{\code{genotype}}{a numeric vector}
-    \item{\code{covariate.1}}{a numeric vector}
-    \item{\code{covariate.2}}{a numeric vector}
-    \item{\code{covariate.3}}{a numeric vector}
-  }
+  A data frame containing the following variables for each of 1200 observations: status (disease status coded as 1 for case or 0 for control), stratum (a three-level stratum variable coded as 1, 2, or 2), covariate.1, covariate.2, covariate.3 (three continuous covariates), SNP.1,...,SNP.100 (100 SNP genotypes coded as 0, 1, or 2 according to the number of minor alleles).
 }
 \examples{
   data(data);

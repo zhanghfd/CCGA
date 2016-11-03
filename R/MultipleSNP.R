@@ -2,7 +2,7 @@ MultipleSNP <-
 function(Gs,Y,Z,S,fs,par=NULL,link='logit',modified=TRUE,cl.cores=1){
 
   if(!is.matrix(Gs)){
-    stop('Gs must be a matrix');
+    Gs = as.matrix(Gs);
   }
   G.list = unclass(data.frame(Gs));
 
