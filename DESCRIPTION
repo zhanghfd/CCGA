@@ -5,7 +5,7 @@ Version: 1.0
 Date: 2016-10-27
 Author: Hong Zhang
 Maintainer: Hong Zhang <zhanghfd@fudan.edu.cn>
-Depends: rootSolve, maxLik, R (>= 2.14)
+Depends: rootSolve, maxLik, parallel, R (>= 2.14)
 Description: The power of disease-SNP association analysis in case-control studies can be potentially improved through adjustment of non-confounding covariates.
 License: Artistic License 2.0
 LazyLoad: yes

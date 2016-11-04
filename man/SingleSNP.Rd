@@ -7,7 +7,9 @@ Estimation of regression parameters and their standard errors for a single SNP.
 \description{
 This function returns parameter estimates and their standard errors for the parameters in the model relating disease status and (1) SNP genotype, (2) stratum variable, and (3) covariate(s). The estimated parameters include (1) regression parameters and (2) minor allele frequency. If the original profile likelihood is maximized, If the outputs also include (3) Lagrange's multipliers.
 
-The imputs of this function include (1) disease status, (2) SNP genotype, (3) covariate(s), and (4) stratum indicator for each subject. Furthermore, the disease prevalence for each stratum is also required. If a covariate is categorical, dummy variables should be constructed before using the function.
+The imputs of this function include (1) disease status, (2) SNP genotype, (3) covariate(s), and (4) stratum indicator for each subject. Furthermore, the disease prevalence for each stratum is also required.
+
+If a covariate is categorical, dummy variables should be constructed before using the function.
 }
 \usage{
 SingleSNP(Y, G, X, S, fs, par = NULL, link = "logit", modified = TRUE)
