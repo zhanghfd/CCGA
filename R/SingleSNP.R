@@ -94,14 +94,20 @@ SingleSNP = function(Y,G,X,S,fs,par=NULL,link='logit',modified=TRUE){
   }else{
     var.nam.mpMLE = c('MAF', 'Intercept', 'SNP', paste('Covariate',1:n.X,sep='.'));
   }
-  LOGIT = round(data.frame(EST=as.numeric(est.log),SE=as.numeric(se.log)),5);
-  mpMLE=round(data.frame(EST=res$par,SE=res$se),5);
+  stat = (est.log/se.log)^2;
+  p.value = ifelse(stat<20,1-pchisq(stat,1),-pchisq(stat,1,log.p=TRUE));
+  LOGIT = data.frame(EST=as.numeric(est.log),SE=as.numeric(se.log),p.value=p.value);
+  stat = (res$par/res$se)^2;
+  p.value = ifelse(stat<20,1-pchisq(stat,1),-pchisq(stat,1,log.p=TRUE));
+  mpMLE=round(data.frame(EST=res$par,SE=res$se,p.value=p.value),5);
   row.names(LOGIT) = var.nam.logit;
   row.names(mpMLE) = var.nam.mpMLE;
   if(modified){
     res = list(LOGIT=LOGIT,mpMLE=mpMLE);
   }else{
-    pMLE = round(data.frame(EST=res0$par,SE=res0$se),5);
+    stat = (res0$par/res0$se)^2;
+    p.value = ifelse(stat<20,1-pchisq(stat,1),-pchisq(stat,1,log.p=TRUE));
+    pMLE = round(data.frame(EST=res0$par,SE=res0$se,p.value=p.value),5);
     row.names(pMLE) = c(var.nam.mpMLE,paste('Lambda',1:n.S,sep='.'));
     res = list(LOGIT=LOGIT,mpMLE=mpMLE,pMLE=pMLE);
   }
