@@ -26,7 +26,7 @@ SingleSNP(Y, G, X, S, fs, par = NULL, link = "logit", modified = TRUE)
 }
   \item{fs}{Prevalence(s) (vector). The ith entry is the prevalence for stratum i.
 }
-  \item{par}{Initial regression parameters (list) including alpha, betaG, betaX, and betaS, with the default value being NULL.
+  \item{par}{Initial regression parameters (list) including alpha, beta_G, beta_X, and beta_S, with the default value being NULL.
 }
   \item{link}{Link function, which should be either 'logit' (default value) or 'probit'.
 }
@@ -35,9 +35,9 @@ SingleSNP(Y, G, X, S, fs, par = NULL, link = "logit", modified = TRUE)
 }
 
 \value{
-  \item{LOGIT}{Standard logistic regression results including the MLEs of regression parameters and their standard errors.}
-  \item{mpMLE}{Modified profile MLEs and their standard errors.}
-  \item{pMLE}{The original prifile MLEs and their standard errors, available when "modified" is FALSE.}
+  \item{LOGIT}{Standard logistic regression results including the MLEs of regression parameters, standard errors, and significance test p-values.}
+  \item{mpMLE}{Modified profile MLEs, standard errors, and significance test p-values.}
+  \item{pMLE}{The original prifile MLEs, standard errors, and significance test p-values, available when "modified" is FALSE.}
 }
 
 
@@ -55,7 +55,7 @@ SingleSNP(Y, G, X, S, fs, par = NULL, link = "logit", modified = TRUE)
 
   fs = c(0.010869, 0.000867, 0.001707);
 
-  fit = SingleSNP(Y=status,G=genotype,X=covariate,S=stratum,fs=fs);
+  res = SingleSNP(Y=status,G=genotype,X=covariate,S=stratum,fs=fs);
 
 }
 

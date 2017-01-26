@@ -28,7 +28,7 @@ MultipleSNP(Gs, Y, Z, S, fs, par = NULL, link = "logit", modified=TRUE, cl.cores
 }
   \item{fs}{Prevalence(s) (vector). The ith entry is the prevalence for stratum i.
 }
-  \item{par}{Initial regression parameters (list) including alpha, betaG, betaX, and betaS, with the default value being NULL.
+  \item{par}{Initial regression parameters (list) including alpha, beta_G, beta_X, and beta_S, with the default value being NULL.
 }
   \item{link}{Link function, which should be either 'logit' (default value) or 'probit'.
 }
@@ -36,6 +36,12 @@ MultipleSNP(Gs, Y, Z, S, fs, par = NULL, link = "logit", modified=TRUE, cl.cores
 }
   \item{cl.cores}{CPU cores used, with a defaul value of 1.
 }
+}
+
+\value{
+  \item{log-OR}{Log odds ratios for SNP-disease associations.}
+  \item{SE}{Estimated standard errors of log odds ratios}
+  \item{p-value}{Significance test p-values for testing SNP-disease associations}
 }
 
 
